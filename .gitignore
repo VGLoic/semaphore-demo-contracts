@@ -1,0 +1,16 @@
+node_modules
+.env
+coverage
+coverage.json
+typechain
+
+# Build
+lib
+build
+
+#Hardhat files
+cache
+artifacts
+
+# NPM is used
+yarn.lock
