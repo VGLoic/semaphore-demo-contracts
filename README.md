@@ -1,46 +1,60 @@
-# Advanced Sample Hardhat Project
 
-This project demonstrates an advanced Hardhat use case, integrating other tools commonly used alongside Hardhat in the ecosystem.
+# Semaphore Demo Contracts
 
-The project comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts. It also comes with a variety of other tools, preconfigured to work with the project code.
+:warning: This application has been developed for educational purposes and should not be considered as a serious product :warning:
 
-Try running some of the following tasks:
+This repository contains the only and simple contract for this Semaphore demo app. The contract acts as a Semaphore group admin and allows anyone to join the managed group.
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-npx hardhat help
-REPORT_GAS=true npx hardhat test
-npx hardhat coverage
-npx hardhat run scripts/deploy.ts
-TS_NODE_FILES=true npx ts-node scripts/deploy.ts
-npx eslint '**/*.{js,ts}'
-npx eslint '**/*.{js,ts}' --fix
-npx prettier '**/*.{json,sol,md}' --check
-npx prettier '**/*.{json,sol,md}' --write
-npx solhint 'contracts/**/*.sol'
-npx solhint 'contracts/**/*.sol' --fix
+## Local Development
+
+This repository is developped using [hardhat](https://hardhat.org/). One is free to directly use the available scripts from hardhat using `npx`, otherwise, a set of local script have been made in order to allow safe local development.
+
+### Setup
+
+#### Environment Variables
+
+Proper environment variables are needed in order to run the various scripts
+- `REPORT_GAS`: if truthy, the gas measurements of the tests will be translated in USD value. The `COINMARKET_CAP_API_KEY` environment variable will need to be set,
+- `COINMARKET_CAP_API_KEY`: an API key for CoinMarket Cap in order to retrieve USD value of ETH,
+- `ETHERSCAN_KEY`: an etherscan key used in order to verify the contracts on Etherscan,
+
+#### Nvm
+
+Use configured node and npm versions
+```console
+nvm use
 ```
 
-# Etherscan verification
+Nvm installation instructions may be found [here](https://github.com/nvm-sh/nvm);
 
-To try out Etherscan verification, you first need to deploy a contract to an Ethereum network that's supported by Etherscan, such as Ropsten.
+#### Dependencies
 
-In this project, copy the .env.example file to a file named .env, and then edit it to fill in the details. Enter your Etherscan API key, your Ropsten node URL (eg from Alchemy), and the private key of the account which will send the deployment transaction. With a valid .env file in place, first deploy your contract:
-
-```shell
-hardhat run --network ropsten scripts/deploy.ts
+Install dependencies
+```console
+npm install
 ```
 
-Then, copy the deployment address and paste it in to replace `DEPLOYED_CONTRACT_ADDRESS` in this command:
+### Compile the smart contracts
 
-```shell
-npx hardhat verify --network ropsten DEPLOYED_CONTRACT_ADDRESS "Hello, Hardhat!"
+```console
+npm run compile
 ```
 
-# Performance optimizations
+### Tests
 
-For faster runs of your tests and scripts, consider skipping ts-node's type checking by setting the environment variable `TS_NODE_TRANSPILE_ONLY` to `1` in hardhat's environment. For more details see [the documentation](https://hardhat.org/guides/typescript.html#performance-optimizations).
+Run all the tests
+```console
+npm run test
+```
+
+Obtain the test coverage
+```console
+npm run test:cover
+```
+
+### Solhint
+
+Run a security and practices analysis by [solhint](https://github.com/protofire/solhint)
+```console
+npm run solhint
+```
