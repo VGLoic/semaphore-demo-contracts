@@ -21,7 +21,7 @@
   "scripts": {
     "build": "hardhat compile && tsc --project tsconfig-publish.json && cp typechain/*.d.ts lib/typechain/",
     "compile": "hardhat compile",
-    "typechain": "SKIP_LOAD=true hardhat typechain",
+    "typechain": "SKIP_TASKS=true hardhat typechain",
     "test": "hardhat test",
     "test:cover": "hardhat coverage",
     "local:node": "hardhat node",
@@ -30,7 +30,7 @@
     "goerli:deploy": "hardhat --network goerli deploy",
     "solhint": "solhint 'contracts/**/*.sol'",
     "format": "prettier --write --ignore-unknown test contracts",
-    "prepare": "SKIP_LOAD=true husky install && hardhat typechain"
+    "prepare": "husky install && SKIP_TASKS=true hardhat typechain"
   },
   "keywords": [
     "web3",
