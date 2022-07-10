@@ -30,7 +30,7 @@
     "goerli:deploy": "hardhat --network goerli deploy",
     "solhint": "solhint 'contracts/**/*.sol'",
     "format": "prettier --write --ignore-unknown test contracts",
-    "prepare": "husky install && hardhat typechain"
+    "prepare": "SKIP_LOAD=true husky install && hardhat typechain"
   },
   "keywords": [
     "web3",
