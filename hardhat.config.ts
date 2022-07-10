@@ -7,7 +7,6 @@ import "hardhat-gas-reporter";
 import "hardhat-deploy";
 import 'hardhat-deploy-ethers';
 import "solidity-coverage";
-import { ISemaphore__factory } from "./typechain";
 import { address as SEMAPHORE_DEMO_GOERLI_ADDRESS } from './deployments/goerli/SemaphoreDemo.json';
 
 dotenv.config();
@@ -19,6 +18,8 @@ const GROUP_ID = 123456789
 // https://hardhat.org/guides/create-task.html
 task("createGroup", "Create a group on Semaphore", async (_, hre) => {
   const [deployer] = await hre.ethers.getSigners()
+
+  const { ISemaphore__factory } = await import("./typechain");
 
   const semaphore = ISemaphore__factory.connect(
     SEMAPHORE_GOERLI_ADDRESS,
@@ -39,6 +40,8 @@ task("createGroup", "Create a group on Semaphore", async (_, hre) => {
 
 task("updateGroupAdmin", "Update group admin on Semaphore", async (_, hre) => {
   const [deployer] = await hre.ethers.getSigners()
+
+  const { ISemaphore__factory } = await import("./typechain");
 
   const semaphore = ISemaphore__factory.connect(
     SEMAPHORE_GOERLI_ADDRESS,
