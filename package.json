@@ -21,7 +21,7 @@
   "scripts": {
     "build": "hardhat compile && tsc --project tsconfig-publish.json && cp typechain/*.d.ts lib/typechain/",
     "compile": "hardhat compile",
-    "typechain": "hardhat typechain",
+    "typechain": "SKIP_LOAD=true hardhat typechain",
     "test": "hardhat test",
     "test:cover": "hardhat coverage",
     "local:node": "hardhat node",
