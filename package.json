@@ -19,8 +19,8 @@
     "url": "https://github.com/VGLoic/semaphore-demo-contracts/issues"
   },
   "scripts": {
-    "build": "hardhat compile && tsc --project tsconfig-publish.json && cp typechain/*.d.ts lib/typechain/",
-    "compile": "hardhat compile",
+    "build": "SKIP_TASKS=true hardhat compile && tsc --project tsconfig-publish.json && cp typechain/*.d.ts lib/typechain/",
+    "compile": "SKIP_TASKS=true hardhat compile",
     "typechain": "SKIP_TASKS=true hardhat typechain",
     "test": "hardhat test",
     "test:cover": "hardhat coverage",

@@ -1,6 +1,6 @@
 import { MultiNetworkContractStore } from "contract-store";
 import semaphoreDemoGoerli from "./deployments/goerli/SemaphoreDemo.json";
-import semaphore from './artifacts/@semaphore-protocol/contracts/Semaphore.sol/Semaphore.json';
+import semaphore from './artifacts/@semaphore-protocol/contracts/interfaces/ISemaphore.sol/ISemaphore.json';
 
 export * from "./typechain";
 
