@@ -83,6 +83,6 @@
     "test/**/*.{ts,tsx,js,jsx}": "eslint test --max-warnings=0"
   },
   "dependencies": {
-    "contract-store": "^1.0.0-alpha.2"
+    "contract-store": "^1.0.0-alpha.6"
   }
 }
